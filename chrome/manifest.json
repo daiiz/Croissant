@@ -1,0 +1,43 @@
+{
+  "background": {
+    "page": "background.html"
+  },
+  "options_page": "options.html",
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+  "description": "Croissant",
+  "icons": {
+    "16": "images/icon.png",
+    "48": "images/icon.png",
+    "128": "images/icon.png"
+  },
+  "browser_action": {
+    "default_icon": "images/icon.png",
+    "default_popup": "popup.html",
+    "deafault_title": "Croissant"
+  },
+  "manifest_version": 2,
+  "name": "Croissant",
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "css": [
+        "./css/contentScript.css"
+      ],
+      "js": [
+        "./build/bundle.js",
+        "./build/contentScripts.js"
+      ],
+      "run_at": "document_end"
+    }
+  ],
+  "web_accessible_resources": [
+  ],
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "<all_urls>"
+  ],
+  "version": "1.0.0"
+}
